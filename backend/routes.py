@@ -43,7 +43,7 @@ def gpt():
             img_path=img_path,
             output_json_path=output_json_path,
             user_prompt=user_prompt,
-            model=model
+            model_used=model
         )
 
         return jsonify({

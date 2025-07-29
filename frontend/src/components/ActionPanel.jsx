@@ -19,7 +19,7 @@ export default function ActionPanel({ onHide, onCallGpt, disabled, thumbWidth, s
             />
         </label>  
       <button className="button button-blue" onClick={onCallGpt} disabled={disabled}>
-        Call GPT
+        Extract Tables
       </button>
       <button className="button button-ylw" onClick={onHide} disabled={disabled}>
         Hide

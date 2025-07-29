@@ -2,6 +2,7 @@ import { useState } from "react";
 import Sidebar from "./components/Sidebar";
 import PageGrid from "./components/PageGrid";
 import ActionPanel from "./components/ActionPanel";
+import OutputBar from "./components/OutputBar";
 import "./index.css";
 
 export default function App() {
@@ -10,6 +11,7 @@ export default function App() {
   const [thumbWidth, setThumbWidth]= useState(160); //px
   const [groups, setGroups] = useState([]); 
   const [activeGroupId, setActiveGroupId]= useState(null);
+  const [tableData, setTableData] = useState(null);
 
 
   // Optional: centralize API base if you want absolute URLs.
@@ -78,7 +80,8 @@ export default function App() {
 
     const json = await res.json();
     console.log("GPT Result:", json);
-    alert("GPT finished:\n" + JSON.stringify(json, null, 2));
+    //alert("GPT finished:\n" + JSON.stringify(json, null, 2));
+    setTableData(json.tables);
     } catch (err) {
     console.error("Error calling GPT:", err);
     alert("GPT call failed");
@@ -87,7 +90,8 @@ export default function App() {
 
   
   return (
-    <div className="flex">
+    <div className="app-container">
+      <div className="flex main-content">
       <Sidebar  files={files} 
                 setFiles={setFiles}
                 groups={groups}
@@ -108,6 +112,8 @@ export default function App() {
         thumbWidth={thumbWidth}
         setThumbWidth={setThumbWidth}
       />
+    </div>
+    <OutputBar tableData={tableData} /> 
     </div>
   );
 }

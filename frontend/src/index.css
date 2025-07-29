@@ -1,3 +1,6 @@
+.app-container { display:flex; flex-direction:column; height:100%; }
+.main-content { flex:1; display:flex; }
+
 html, body, #root { height: 100%; margin: 0; font-family: sans-serif; }
 
 .flex        { display: flex; height: 100%; }
@@ -17,4 +20,26 @@ html, body, #root { height: 100%; margin: 0; font-family: sans-serif; }
 .thumb-box.selected img {
   outline: 3px solid #007bff; /* blue border when selected */
   outline-offset: -2px;
+}
+
+.output-bar {
+  border-top: 1px solid #ccc;
+  padding: 1rem;
+  overflow: auto;
+  background: #fff;
+}
+.output-bar table {
+  border-collapse: collapse;
+}
+.output-bar th,
+.output-bar td {
+  border: 1px solid #ddd;
+  padding: 4px 8px;
+  font-size: 0.85rem;
+}
+.output-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
 }

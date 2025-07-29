@@ -2,7 +2,7 @@ import json
 from openai import OpenAI 
 
 
-def imgfile_tblsextrt(img_path, output_json_path, user_prompt, model):
+def imgfile_tblsextrt(img_path, output_json_path, user_prompt, model_used):
     client = OpenAI()
 
     # Function to create a file with the Files API
@@ -18,7 +18,7 @@ def imgfile_tblsextrt(img_path, output_json_path, user_prompt, model):
     file_id = create_file(img_path)
 
     response = client.responses.create(
-        model="o4-mini",
+        model=model_used,
         input=[
             {
                 "role": "user",
